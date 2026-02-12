@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: 'Inter', sans-serif;
+  --font-display: 'Outfit', sans-serif;
+
+  /* Light Theme - Strictly Red, Black, White */
+  --background: 0 0% 100%; /* White */
+  --foreground: 0 0% 0%; /* Black */
+  
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 0%;
+  
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 0%;
+  
+  --primary: 0 100% 50%; /* Red */
+  --primary-foreground: 0 0% 100%; /* White */
+  
+  --secondary: 0 0% 0%; /* Black */
+  --secondary-foreground: 0 0% 100%; /* White */
+  
+  --muted: 0 0% 96%;
+  --muted-foreground: 0 0% 25%; /* Darker for better contrast in light mode */
+  
+  --accent: 0 100% 50%; /* Red */
+  --accent-foreground: 0 0% 100%;
+  
+  --destructive: 0 100% 40%;
+  --destructive-foreground: 0 0% 100%;
+
+  --border: 0 0% 89%;
+  --input: 0 0% 89%;
+  --ring: 0 100% 50%;
+  
+  --radius: 0.75rem;
+}
+
+.dark {
+  /* Dark Theme - Strictly Red, Black, White */
+  --background: 0 0% 0%; /* Black */
+  --foreground: 0 0% 100%; /* White */
+  
+  --card: 0 0% 7%;
+  --card-foreground: 0 0% 100%;
+  
+  --popover: 0 0% 7%;
+  --popover-foreground: 0 0% 100%;
+  
+  --primary: 0 100% 50%; /* Red */
+  --primary-foreground: 0 0% 100%;
+  
+  --secondary: 0 0% 100%; /* White */
+  --secondary-foreground: 0 0% 0%;
+  
+  --muted: 0 0% 15%;
+  --muted-foreground: 0 0% 85%; /* Lighter for better contrast in dark mode */
+  
+  --accent: 0 100% 50%; /* Red */
+  --accent-foreground: 0 0% 100%;
+  
+  --destructive: 0 100% 40%;
+  --destructive-foreground: 0 0% 100%;
+  
+  --border: 0 0% 15%;
+  --input: 0 0% 15%;
+  --ring: 0 100% 50%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-sans);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    @apply font-bold tracking-tight;
+  }
+}
+
+/* Glassmorphism Utilities */
+.glass {
+  @apply bg-white/10 backdrop-blur-md border border-white/20 dark:bg-black/20 dark:border-white/10;
+}
+
+.glass-card {
+  @apply glass rounded-2xl shadow-xl shadow-black/5 hover:shadow-2xl transition-all duration-300;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-background;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-muted-foreground/20 rounded-full hover:bg-muted-foreground/40 transition-colors;
+}
